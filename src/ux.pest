@@ -1,0 +1,131 @@
+WHITESPACE = _{ " " | NEWLINE | "\t" }
+COMMENT = _{ 
+    "<!--" ~ (!"-->" ~ ANY)* ~ "-->"
+}
+
+file = { 
+    SOI 
+    ~ document
+    ~ EOI 
+}
+
+document = {
+    document_type? 
+    ~ element*
+}
+
+element = { 
+    closed_tag 
+    | full_tag  
+}
+
+closed_tag = { "<" ~ ident ~ attributes? ~ "/>" }
+
+full_tag = {
+    open_tag ~ element_or_body* ~ close_tag
+}
+
+element_or_body = {
+    element 
+    | !"</" ~ element_body
+}
+
+open_tag = { "<" ~ ident ~ attributes? ~ ">" }
+close_tag = { "</" ~ ident ~ ">" }
+
+element_body = ${ element_inner } // compound atomic
+
+element_inner = @{ element_inner_char* } // atomic rule
+
+element_inner_char = {
+    !"</" // if the following text is not closing tag
+    ~ ANY // then consume one character
+}
+
+
+attributes = {
+    attribute*
+}
+
+attribute = {
+    attribute_name ~ "=" ~ attribute_value
+    | attribute_name
+}
+
+attribute_name = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "-" | "_" | ":")* }
+
+attribute_value = ${
+    "\"" ~ double_quoted ~ "\""
+    | "'" ~ single_quoted ~ "'"
+}
+
+document_type = {
+    "<!" ~ ident ~ ident ~ ">"
+}
+
+// old fag
+
+literal = {
+    null_literal
+    | boolean_literal
+    | numeric_literal
+    | string_literal
+}
+
+null_literal = {
+    "null"
+}
+
+numeric_literal = {
+    hex_number
+    | number
+}
+
+number = {
+    ASCII_DIGIT+ ~ ("." ~ ASCII_DIGIT+)? ~ exponent?
+    | "." ~ ASCII_DIGIT+ ~ exponent?
+}
+
+exponent = {
+    ("e"|"E") ~ ("+"|"-")? ~ ASCII_DIGIT+
+}
+
+hex_number = ${ ("0x"|"0X") ~ hex_inner }
+hex_inner = @{ ASCII_HEX_DIGIT+ }
+
+// 16.6 Booleans
+boolean_literal = {
+    "true" | "false"
+}
+
+// 16.7 Strings
+string_literal = ${
+    "\"" ~ double_quoted ~ "\""
+    | "'" ~ single_quoted ~ "'"
+}
+
+double_quoted = @{ double_quoted_char* }
+
+double_quoted_char = {
+    "\\" ~ ("\"" | "\\" | "/" | "b" | "f" | "n" | "r" | "t")
+    | "\\" ~ ("u" ~ ASCII_HEX_DIGIT{4})
+    | !("\"") ~ ANY
+}
+
+single_quoted = @{ single_quoted_char* }
+
+single_quoted_char = {
+    !("'") ~ ANY
+}
+
+ident = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "_" )* }
+
+qualified = {
+    ident ~ ("." ~ ident)?
+}
+
+// testing = {
+//      SOI 
+//     ~ argument_list
+//     ~ EOI   
+// }
