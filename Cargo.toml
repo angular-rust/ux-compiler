@@ -2,7 +2,18 @@
 name = "ux-compiler"
 version = "0.1.0"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+readme = "README.md"
+homepage = "https://angular-rust.github.io/ux-compiler"
+repository = "https://github.com/angular-rust/ux-compiler"
+documentation = "https://docs.rs/ux-compiler"
+description = "UX Framework Complier"
+# keywords = ["gamedev", "graphics"]
+categories = ["command-line-utilities", "development-tools", "compilers"]
 edition = "2018"
+license = "GPL-3.0"
+
+[badges]
+maintenance = { status = "actively-developed" }
 
 [dependencies]
 pest = "2.1.3"
