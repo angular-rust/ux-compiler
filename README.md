@@ -6,20 +6,18 @@
 [![Gitter chat][gitter-badge]][gitter-url]
 [![Rustc Version 1.45+][rust-badge]][rust-url]
  
-[docrs-badge]: https://docs.rs/ux-compiler/badge.svg
+[docrs-badge]: https://img.shields.io/docsrs/ux-compiler?style=flat-square
 [docrs-url]: https://docs.rs/ux-compiler/
-[crates-badge]: https://img.shields.io/crates/v/ux-compiler.svg
+[crates-badge]: https://img.shields.io/crates/v/ux-compiler.svg?style=flat-square
 [crates-url]: https://crates.io/crates/ux-compiler
-[license-badge]: https://img.shields.io/badge/license-GPL--3.0-green.svg
+[license-badge]: https://img.shields.io/badge/license-GPL--3.0-green.svg?style=flat-square
 [license-url]: https://github.com/angular-rust/ux-compiler/blob/master/LICENSE
-[gitter-badge]: https://img.shields.io/gitter/room/angular_rust/angular_rust.svg
+[gitter-badge]: https://img.shields.io/gitter/room/angular_rust/angular_rust.svg?style=flat-square
 [gitter-url]: https://gitter.im/angular_rust/angular_rust
-[rust-badge]: https://img.shields.io/badge/rustc-1.45-lightgrey.svg
+[rust-badge]: https://img.shields.io/badge/rustc-1.45-lightgrey.svg?style=flat-square
 [rust-url]: https://blog.rust-lang.org/2020/07/16/Rust-1.45.0.html
 
 Angular Rust is a high productivity, frontend web framework for the [Rust language](https://www.rust-lang.org/).
-
-Current Version: 0.1.0 (2021-03-01)
 
 ## Quick Start
 
@@ -46,5 +44,5 @@ If you find an issue, let me know [here](https://github.com/angular-rust/ux-comp
 ## Contributing
 I openly welcome community contributions, including bug fixes and new features. Please feel free to [fork the project](https://github.com/angular-rust/ux-compiler/fork) and submit a pull request.
 
-* [Contributing Code Guidelines](https://github.com/angular-rust/ux-compiler/blob/master/CONTRIBUTING.md)
+* [Contributing Code Guidelines](https://github.com/angular-rust/ux-compiler/blob/main/CONTRIBUTING.md)
 * [Angular Rust Contributors](https://github.com/angular-rust/ux-compiler/graphs/contributors)
