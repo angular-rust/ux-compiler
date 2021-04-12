@@ -1,6 +1,6 @@
 #![allow(unused_variables)]
 #![allow(unused_imports)]
-// #![allow(dead_code)]
+#![allow(clippy::single_match, clippy::upper_case_acronyms)]
 
 use pest::{
     error::{ErrorVariant, LineColLocation},
@@ -29,7 +29,6 @@ fn pretty_error(positives: Vec<Rule>, line: usize, col: usize, input: &str) {
 }
 
 fn main() {
-
     let input = fs::read_to_string("tests/data/01.html").expect("cannot read file");
 
     match UxParser::parse(Rule::file, &input) {
@@ -47,9 +46,7 @@ fn main() {
                     LineColLocation::Pos((line, col)) => {
                         pretty_error(positives, line, col, &input);
                     }
-                    _ => {
-                        
-                    }
+                    _ => {}
                 },
                 _ => {}
             }
