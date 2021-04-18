@@ -26,7 +26,7 @@
 [loc-badge]: https://img.shields.io/tokei/lines/github/angular-rust/ux-compiler?style=flat-square
 [loc-url]: https://github.com/angular-rust/ux-compiler
 
-**UX Compiler** is the main tool for declarative development in Angular Rust. This is a dependency for [Cargo UX](https://github.com/angular-rust/carog-ux)
+**UX Compiler** is the main tool for declarative development in Angular Rust. This is a dependency for [Cargo UX](https://github.com/angular-rust/cargo-ux)
 
 > **work in progress**
 
